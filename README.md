@@ -5,7 +5,7 @@
 [![Travis](https://img.shields.io/travis/piecioshka/github-track-followers.svg?maxAge=2592000)](https://travis-ci.org/piecioshka/github-track-followers)
 [![Coverage Status](https://coveralls.io/repos/github/piecioshka/github-track-followers/badge.svg?branch=master)](https://coveralls.io/github/piecioshka/github-track-followers?branch=master)
 
-> :hammer: CLI for display followers of GitHub user
+> :hammer: CLI to display followers of GitHub user
 
 ## Installation
 
@@ -26,7 +26,7 @@ $ github-track-followers -h
     <username>   display GitHub user followers
     help [cmd]   display help for [cmd]
 
-  CLI for display followers of GitHub user
+  CLI to display followers of GitHub user
 
   Options:
 
@@ -67,7 +67,7 @@ Command save report to file `/tmp/piecioshka-2016-11-18-22-47-52.md`.
 ### Example 3. `Enter to debug mode`
 
 ```
-DEBUG=* github-track-followers piecioshka
+$ DEBUG=* github-track-followers piecioshka
 ```
 
 ## Unit tests
@@ -76,7 +76,7 @@ DEBUG=* github-track-followers piecioshka
 $ npm test
 ```
 
-Use Jasmine.
+Use [Jasmine](https://jasmine.github.io/).
 
 ## License
 
