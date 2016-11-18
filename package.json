@@ -1,5 +1,37 @@
 {
-    "private": true,
     "name": "github-track-followers",
-    "version": "0.0.0"
+    "version": "1.0.0",
+    "description": "Tool generate report of GitHub followers",
+    "license": "MIT",
+    "author": {
+        "name": "Piotr Kowalski",
+        "email": "piecioshka@gmail.com",
+        "url": "http://piecioshka.pl"
+    },
+    "repository": {
+        "type": "git",
+        "url": "http://github.com/piecioshka/github-track-followers.git"
+    },
+    "scripts": {
+        "clear": "rm -rf node_modules/ reports/"
+    },
+    "dependencies": {
+        "colors": "^1.1.2",
+        "commander": "^2.9.0",
+        "mkdirp": "^0.5.1",
+        "superagent": "^2.3.0",
+        "url-lib": "^2.0.2"
+    },
+    "files": [
+        "src",
+        "index.js",
+        "package.json",
+        "README.md"
+    ],
+    "keywords": [
+        "github",
+        "track",
+        "followers"
+    ],
+    "main": "index.js"
 }
