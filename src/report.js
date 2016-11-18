@@ -10,8 +10,15 @@ function serialize(username, followers) {
 `;
 }
 
+function getCurrentDate() {
+    let isoString = new Date().toISOString();
+    isoString = isoString.replace(/\.(.*)/g, '');
+    isoString = isoString.replace(/[^\d]/g, '-');
+    return isoString;
+}
+
 function buildFilename(username) {
-    return `${username}-${new Date().toISOString()}.md`;
+    return `${username}-${getCurrentDate()}.md`;
 }
 
 function saveFile([username, followers]) {
@@ -23,7 +30,7 @@ function saveFile([username, followers]) {
                 return console.log(err);
             }
 
-            console.log('The file was saved!');
+            console.log(`Report is saved to file: "${filename}"`);
             resolve();
         });
     });
