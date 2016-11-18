@@ -3,7 +3,7 @@
 class Report {
     constructor(username, followers) {
         this.username = username;
-        this.followers = Report.sortFollowersByLogin(followers);
+        this.followers = followers;
     }
 
     serialize() {
@@ -15,7 +15,8 @@ GitHub user "${this.username}" has followers (${this.followers.length}):\n
     }
 
     display() {
-        let results = this.serialize(this.username, this.followers);
+        let followers = Report.sortFollowersByLogin(this.followers);
+        let results = this.serialize(this.username, followers);
         console.log(results);
     }
 

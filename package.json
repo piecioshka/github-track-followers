@@ -1,6 +1,6 @@
 {
     "name": "github-track-followers",
-    "version": "1.0.5",
+    "version": "1.0.6",
     "description": "CLI for display followers of GitHub user",
     "license": "MIT",
     "author": {
@@ -13,13 +13,20 @@
         "url": "http://github.com/piecioshka/github-track-followers.git"
     },
     "scripts": {
-        "clear": "rm -rf node_modules/ reports/"
+        "clear": "rm -rf node_modules/ reports/",
+        "test": "jasmine JASMINE_CONFIG_PATH=test/unit/jasmine.json",
+        "coverage": "istanbul cover jasmine JASMINE_CONFIG_PATH=test/unit/jasmine.json",
+        "coveralls": "npm run coverage && cat ./coverage/lcov.info | coveralls -v"
     },
     "dependencies": {
         "colors": "^1.1.2",
         "commander": "^2.9.0",
         "superagent": "^2.3.0",
         "url-lib": "^2.0.2"
+    },
+    "devDependencies": {
+        "istanbul": "^0.4.5",
+        "jasmine": "^2.5.2"
     },
     "files": [
         "src",

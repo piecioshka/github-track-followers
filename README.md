@@ -64,11 +64,19 @@ $ github-track-followers piecioshka > "/tmp/piecioshka-$(date +"%Y-%m-%d-%H-%M-%
 
 Command save report to file `/tmp/piecioshka-2016-11-18-22-47-52.md`.
 
-### Example 3. Debug mode
+### Example 3. `Enter to debug mode`
 
 ```
 DEBUG=* github-track-followers piecioshka
 ```
+
+## Unit tests
+
+```
+$ npm test
+```
+
+Use Jasmine.
 
 ## License
 
