@@ -36,6 +36,28 @@ $ github-track-followers -h
 
 ## Examples
 
+### Example 0. `Error handling?`
+
+
+#### ERROR: Try to display followers of user who is not exists
+```
+$ github-track-followers not-found-username-iu1h23j
+
+Not found
+```
+
+Solution: maybe you have typo?
+
+#### ERROR: Too many request in one day per one IP address
+
+```
+$ github-track-followers piecioshka
+
+API rate limit exceeded for 89.76.243.116. (But here's the good news: Authenticated requests get a higher rate limit. Check out the documentation for more details.)
+```
+
+Solution: you should rest though next 24 hours?
+
 ### Example 1. `Display user followers`
 
 ```
@@ -72,11 +94,19 @@ $ DEBUG=* github-track-followers piecioshka
 
 ## Unit tests
 
+Use [Jasmine](https://jasmine.github.io/).
+
 ```
 $ npm test
 ```
 
-Use [Jasmine](https://jasmine.github.io/).
+## Code coverage
+
+Use [Istanbul](https://github.com/gotwarlost/istanbul).
+
+```
+$ npm run coverage
+```
 
 ## License
 
