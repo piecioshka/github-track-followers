@@ -31,6 +31,18 @@ $ github-track-followers -h
 
 ```
 $ github-track-followers -d piecioshka
+
+# Followers of: piecioshka (114)
+
+* a-dabrowski
+* aarek
+* adam-sokolowski
+* AdamKochanski
+* adamminiuk
+* agrezak
+* ahaczewski
+* AKalbarczyk
+...
 ```
 
 ## Debug mode
