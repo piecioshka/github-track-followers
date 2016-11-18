@@ -1,7 +1,7 @@
 {
     "name": "github-track-followers",
-    "version": "1.0.4",
-    "description": "Tool generate report of GitHub followers",
+    "version": "1.0.5",
+    "description": "CLI for display followers of GitHub user",
     "license": "MIT",
     "author": {
         "name": "Piotr Kowalski",
@@ -30,7 +30,18 @@
     "keywords": [
         "github",
         "track",
-        "followers"
+        "followers",
+        "cli",
+        "listen",
+        "util",
+        "request",
+        "api",
+        "retrieve",
+        "fetch",
+        "get",
+        "user",
+        "gh",
+        "git"
     ],
     "bin": {
         "github-track-followers": "index.js"

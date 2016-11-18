@@ -1,19 +1,17 @@
 'use strict';
 
+let colors = require('colors');
 let request = require('superagent');
 let URLParser = require('url-lib');
 
-let Parser = require('./parser');
-let Reporter = require('./report');
-let displayException = require('./exception').displayException;
+let Report = require('./report');
 
 const PER_PAGE = 100;
 
-class Track {
-    constructor(username, action) {
+class Tracker {
+    constructor(username) {
         this.page = 1;
         this.username = username;
-        this.action = action;
         this.followers = [];
     }
 
@@ -22,29 +20,25 @@ class Track {
         return URLParser.formatUrl(url, { page: this.page });
     }
 
-    static isEmptyFollowerList(response) {
-        return (response && response.body.length === 0);
-    }
-
     tryNextPage() {
         this.page++;
-        this.makeRequest();
+        this.fetchFollowers();
     }
 
     collectFollowers(response) {
-        this.followers.push(...Parser.parseFollowerNames(response.body, 'login'));
+        this.followers.push(...response.body);
     }
 
     parseResponse(err, response) {
         if (err) {
             let errMessage = JSON.parse(response.text).message;
-            displayException(errMessage);
+            Tracker.displayException(errMessage);
             return;
         }
 
-        if (Track.isEmptyFollowerList(response)) {
-            let report = Parser.sortFollowersByLogin(this.followers);
-            Reporter[this.action](this.username, report);
+        if (Tracker.isEmptyFollowerList(response)) {
+            let report = new Report(this.username, this.followers);
+            report.display();
             return;
         }
 
@@ -52,10 +46,18 @@ class Track {
         this.tryNextPage();
     }
 
-    makeRequest() {
+    fetchFollowers() {
         let url = this.buildURL(this.page, this.username);
         request.get(url).end(this.parseResponse.bind(this));
     }
+
+    static isEmptyFollowerList(response) {
+        return (response && response.body.length === 0);
+    }
+
+    static displayException(error) {
+        console.error(colors.red(error));
+    }
 }
 
-module.exports = Track;
+module.exports = Tracker;

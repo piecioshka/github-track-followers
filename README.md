@@ -5,12 +5,12 @@
 [![Travis](https://img.shields.io/travis/piecioshka/github-track-followers.svg?maxAge=2592000)](https://travis-ci.org/piecioshka/github-track-followers)
 [![Coverage Status](https://coveralls.io/repos/github/piecioshka/github-track-followers/badge.svg?branch=master)](https://coveralls.io/github/piecioshka/github-track-followers?branch=master)
 
-> :hammer: Tool generate report of GitHub followers
+> :hammer: CLI for display followers of GitHub user
 
 ## Installation
 
 ```
-$ npm install --global github-track-followers
+$ npm install github-track-followers --global
 ```
 
 ## Usage
@@ -18,15 +18,15 @@ $ npm install --global github-track-followers
 ```
 $ github-track-followers -h
 
-  Usage: index [options] <username>
+  Usage: github-track-followers [options] <username>
 
 
   Commands:
 
-    <username>   display GitHub User Followers
+    <username>   display GitHub user followers
     help [cmd]   display help for [cmd]
 
-  Tool generate report of GitHub followers
+  CLI for display followers of GitHub user
 
   Options:
 
@@ -34,37 +34,37 @@ $ github-track-followers -h
     -V, --version  output the version number
 ```
 
-## Example
+## Examples
 
-* Example 1. Display user followers
+### Example 1. `Display user followers`
 
-    ```
-    $ github-track-followers piecioshka
-    
-    # GitHub User Followers: piecioshka (114)
-    
-    * a-dabrowski
-    * aarek
-    * adam-sokolowski
-    * AdamKochanski
-    * adamminiuk
-    * agrezak
-    * ahaczewski
-    * AKalbarczyk
-    ...
-    ```
+```
+$ github-track-followers piecioshka
 
-    Display whole list of followers.
+GitHub user "piecioshka" has followers (114):
 
-* Example 2. Save report to file
+* a-dabrowski
+* aarek
+* adam-sokolowski
+* AdamKochanski
+* adamminiuk
+* agrezak
+* ahaczewski
+* AKalbarczyk
+...
+```
 
-    ```
-    $ github-track-followers piecioshka > "/tmp/piecioshka-$(date +"%Y-%m-%d-%H-%M-%S").md"
-    ```
+Display whole list of followers.
 
-    Command save report to file `/tmp/piecioshka-2016-11-18-22-47-52.md`.
+### Example 2. `Save report to file`
 
-## Debug mode
+```
+$ github-track-followers piecioshka > "/tmp/piecioshka-$(date +"%Y-%m-%d-%H-%M-%S").md"
+```
+
+Command save report to file `/tmp/piecioshka-2016-11-18-22-47-52.md`.
+
+### Example 3. Debug mode
 
 ```
 DEBUG=* github-track-followers piecioshka

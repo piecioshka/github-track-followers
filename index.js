@@ -7,14 +7,14 @@ let Tracker = require('./src/tracker');
 let pkg = require('./package.json');
 
 function display(username) {
-    let tracker = new Tracker(username, 'display');
-    tracker.makeRequest();
+    let tracker = new Tracker(username);
+    tracker.fetchFollowers();
 }
 
 program
     .version(pkg.version)
     .description(pkg.description)
     .usage('[options] <username>')
-    .command('<username>', "display GitHub User Followers")
+    .command('<username>', "display GitHub user followers")
     .action(display)
     .parse(process.argv);
