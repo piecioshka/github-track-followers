@@ -1,6 +1,6 @@
 {
     "name": "github-track-followers",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "Tool generate report of GitHub followers",
     "license": "MIT",
     "author": {
@@ -33,5 +33,8 @@
         "track",
         "followers"
     ],
+    "bin": {
+        "github-track-followers": "index.js"
+    },
     "main": "index.js"
 }
