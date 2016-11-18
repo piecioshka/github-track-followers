@@ -18,37 +18,56 @@ $ npm install --global github-track-followers
 ```
 $ github-track-followers -h
 
-  Usage: github-track-followers [options] <username>
+  Usage: index [options] <username>
+
+
+  Commands:
+
+    <username>   display GitHub User Followers
+    help [cmd]   display help for [cmd]
+
+  Tool generate report of GitHub followers
 
   Options:
 
-    -h, --help                output usage information
-    -d, --display <username>  Display GitHub user followers
-    -s, --save <username>     Save file in reports/ directory report of GitHub user followers
+    -h, --help     output usage information
+    -V, --version  output the version number
 ```
 
 ## Example
 
-```
-$ github-track-followers -d piecioshka
+* Example 1. Display user followers
 
-# Followers of: piecioshka (114)
+    ```
+    $ github-track-followers piecioshka
+    
+    # GitHub User Followers: piecioshka (114)
+    
+    * a-dabrowski
+    * aarek
+    * adam-sokolowski
+    * AdamKochanski
+    * adamminiuk
+    * agrezak
+    * ahaczewski
+    * AKalbarczyk
+    ...
+    ```
 
-* a-dabrowski
-* aarek
-* adam-sokolowski
-* AdamKochanski
-* adamminiuk
-* agrezak
-* ahaczewski
-* AKalbarczyk
-...
-```
+    Display whole list of followers.
+
+* Example 2. Save report to file
+
+    ```
+    $ github-track-followers piecioshka > "/tmp/piecioshka-$(date +"%Y-%m-%d-%H-%M-%S").md"
+    ```
+
+    Command save report to file `/tmp/piecioshka-2016-11-18-22-47-52.md`.
 
 ## Debug mode
 
 ```
-DEBUG=* github-track-followers -d piecioshka
+DEBUG=* github-track-followers piecioshka
 ```
 
 ## License
