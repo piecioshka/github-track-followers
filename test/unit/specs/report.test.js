@@ -18,15 +18,13 @@ describe('General', () => {
     });
 
     it('should serialize properly', () => {
-        let r = new Report(username, followers);
-
         let results = `
 GitHub user "${username}" has followers (${followers.length}):\n
 * ${followers.map((follower) => follower.login).join('\n* ')}
 
 `;
 
-        expect(r.serialize()).toEqual(results);
+        expect(Report.serialize(username, followers)).toEqual(results);
     });
 
     it('should display properly', () => {

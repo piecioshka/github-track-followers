@@ -6,17 +6,9 @@ class Report {
         this.followers = followers;
     }
 
-    serialize() {
-        return `
-GitHub user "${this.username}" has followers (${this.followers.length}):\n
-* ${this.followers.map((follower) => follower.login).join('\n* ')}
-
-`;
-    }
-
     display() {
         let followers = Report.sortFollowersByLogin(this.followers);
-        let results = this.serialize(this.username, followers);
+        let results = Report.serialize(this.username, followers);
         console.log(results);
     }
 
@@ -33,6 +25,14 @@ GitHub user "${this.username}" has followers (${this.followers.length}):\n
                 return 0;
             }
         });
+    }
+
+    static serialize(username, followers) {
+        return `
+GitHub user "${username}" has followers (${followers.length}):\n
+* ${followers.map((follower) => follower.login).join('\n* ')}
+
+`;
     }
 }
 
