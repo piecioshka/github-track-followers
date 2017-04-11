@@ -1,4 +1,4 @@
-#!/usr/local/bin/node
+#!/usr/bin/env node
 
 'use strict';
 
@@ -15,6 +15,6 @@ program
     .version(pkg.version)
     .description(pkg.description)
     .usage('[options] <username>')
-    .command('<username>', "display GitHub user followers")
+    .command('<username>', 'display GitHub user followers')
     .action(display)
     .parse(process.argv);
