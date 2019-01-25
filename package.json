@@ -13,7 +13,8 @@
         "url": "http://github.com/piecioshka/github-track-followers.git"
     },
     "scripts": {
-        "clear": "rm -rf node_modules/ reports/ coverage/",
+        "clear": "rm -rf reports/ coverage/",
+        "clear:all": "rm -rf node_modules/ && npm run clear",
         "test": "jasmine JASMINE_CONFIG_PATH=test/unit/jasmine.json",
         "coverage": "istanbul cover jasmine JASMINE_CONFIG_PATH=test/unit/jasmine.json",
         "coveralls": "npm run coverage && cat ./coverage/lcov.info | coveralls -v"

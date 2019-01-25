@@ -5,18 +5,18 @@
 [![Travis](https://img.shields.io/travis/piecioshka/github-track-followers.svg?maxAge=2592000)](https://travis-ci.org/piecioshka/github-track-followers)
 [![Coverage Status](https://coveralls.io/repos/github/piecioshka/github-track-followers/badge.svg?branch=master)](https://coveralls.io/github/piecioshka/github-track-followers?branch=master)
 
-> :hammer: CLI to display followers of GitHub user
+:hammer: CLI to display followers of GitHub user
 
 ## Installation
 
-```
-$ npm install github-track-followers --global
+```bash
+npm install github-track-followers --global
 ```
 
 ## Usage
 
-```
-$ github-track-followers -h
+```bash
+github-track-followers -h
 
   Usage: github-track-followers [options] <username>
 
@@ -38,10 +38,10 @@ $ github-track-followers -h
 
 ### Example 0. `Error handling`
 
-
 #### ERROR: Try to display followers of user who is not exists
-```
-$ github-track-followers not-found-username-iu1h23j
+
+```bash
+github-track-followers not-found-username-iu1h23j
 
 Not found
 ```
@@ -50,8 +50,8 @@ _Solution_: maybe you have typo?
 
 #### ERROR: Too many request in one day per one IP address
 
-```
-$ github-track-followers piecioshka
+```bash
+github-track-followers piecioshka
 
 API rate limit exceeded for 999.999.999.999. (But here's the good news: Authenticated requests get a higher rate limit. Check out the documentation for more details.)
 ```
@@ -60,10 +60,10 @@ _Solution_: you should rest though next 24 hours?
 
 ### Example 1. `Display user followers`
 
-```
-$ github-track-followers piecioshka
+```bash
+github-track-followers piecioshka
 
-GitHub user "piecioshka" has followers (114):
+GitHub user "piecioshka" has followers (268):
 
 * a-dabrowski
 * aarek
@@ -80,32 +80,32 @@ Display whole list of followers.
 
 ### Example 2. `Save report to file`
 
-```
-$ github-track-followers piecioshka > "/tmp/piecioshka-$(date +"%Y-%m-%d-%H-%M-%S").md"
+```bash
+github-track-followers piecioshka > "/tmp/piecioshka-$(date +"%Y-%m-%d-%H-%M-%S").md"
 ```
 
 Command save report to file `/tmp/piecioshka-2016-11-18-22-47-52.md`.
 
 ### Example 3. `Enter to debug mode`
 
-```
-$ DEBUG=* github-track-followers piecioshka
+```bash
+DEBUG=* github-track-followers piecioshka
 ```
 
 ## Unit tests
 
 Use [Jasmine](https://jasmine.github.io/).
 
-```
-$ npm test
+```bash
+npm test
 ```
 
 ## Code coverage
 
 Use [Istanbul](https://github.com/gotwarlost/istanbul).
 
-```
-$ npm run coverage
+```bash
+npm run coverage
 ```
 
 ## License
