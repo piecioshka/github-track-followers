@@ -20,14 +20,14 @@
         "coveralls": "npm run coverage && cat ./coverage/lcov.info | coveralls -v"
     },
     "dependencies": {
-        "colors": "^1.1.2",
-        "commander": "^2.9.0",
-        "superagent": "^2.3.0",
+        "colors": "^1.3.3",
+        "commander": "^2.19.0",
+        "superagent": "^4.1.0",
         "url-lib": "^2.0.2"
     },
     "devDependencies": {
         "istanbul": "^0.4.5",
-        "jasmine": "^2.5.2"
+        "jasmine": "^3.3.1"
     },
     "files": [
         "src",
