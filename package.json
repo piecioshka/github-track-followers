@@ -15,9 +15,8 @@
     "scripts": {
         "clear": "rm -rf reports/ coverage/",
         "clear:all": "rm -rf node_modules/ && npm run clear",
-        "test": "jasmine JASMINE_CONFIG_PATH=test/unit/jasmine.json",
-        "coverage": "istanbul cover jasmine JASMINE_CONFIG_PATH=test/unit/jasmine.json",
-        "coveralls": "npm run coverage && cat ./coverage/lcov.info | coveralls -v"
+        "test": "jasmine test/**/*.test.js",
+        "coverage": "nyc npm run test && cat ./coverage/lcov.info | coveralls -v"
     },
     "dependencies": {
         "colors": "^1.3.3",
@@ -26,12 +25,12 @@
         "url-lib": "^2.0.2"
     },
     "devDependencies": {
-        "istanbul": "^0.4.5",
-        "jasmine": "^3.3.1"
+        "jasmine": "^3.3.1",
+        "nyc": "^14.1.0"
     },
     "files": [
         "src",
-        "index.js",
+        "bin",
         "package.json",
         "README.md"
     ],
@@ -53,7 +52,6 @@
     ],
     "preferGlobal": true,
     "bin": {
-        "github-track-followers": "index.js"
-    },
-    "main": "index.js"
+        "github-track-followers": "bin/cli.js"
+    }
 }

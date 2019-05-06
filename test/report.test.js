@@ -1,6 +1,6 @@
 'use strict';
 
-let Report = require('../../../src/report');
+let Report = require('../src/report');
 
 describe('General', () => {
     let followers, username;

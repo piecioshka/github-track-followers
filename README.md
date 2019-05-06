@@ -1,16 +1,19 @@
-# github-track-followers ([npm](https://www.npmjs.com/package/github-track-followers))
+# github-track-followers
 
 [![npm version](https://badge.fury.io/js/github-track-followers.svg)](https://badge.fury.io/js/github-track-followers)
-![](https://img.shields.io/npm/dt/github-track-followers.svg)
-[![Travis](https://img.shields.io/travis/piecioshka/github-track-followers.svg?maxAge=2592000)](https://travis-ci.org/piecioshka/github-track-followers)
-[![Coverage Status](https://coveralls.io/repos/github/piecioshka/github-track-followers/badge.svg?branch=master)](https://coveralls.io/github/piecioshka/github-track-followers?branch=master)
+[![downloads count](https://img.shields.io/npm/dt/github-track-followers.svg)](https://www.npmjs.com/~piecioshka)
+[![dependencies](https://david-dm.org/piecioshka/github-track-followers.svg)](https://github.com/piecioshka/github-track-followers)
+[![travis](https://img.shields.io/travis/piecioshka/github-track-followers.svg)](https://travis-ci.org/piecioshka/github-track-followers)
+[![coveralls](https://coveralls.io/repos/github/piecioshka/github-track-followers/badge.svg?branch=master)](https://coveralls.io/github/piecioshka/github-track-followers?branch=master)
+[![heroku](https://heroku-badge.herokuapp.com/?app=github-track-followers&style=flat&svg=1)](https://github-track-followers.herokuapp.com/)
+[![snyk](https://snyk.io/test/github/piecioshka/github-track-followers/badge.svg?targetFile=package.json)](https://snyk.io/test/github/piecioshka/github-track-followers?targetFile=package.json)
 
 :hammer: CLI to display followers of GitHub user
 
 ## Installation
 
 ```bash
-npm install github-track-followers --global
+npm install -g github-track-followers
 ```
 
 ## Usage
@@ -94,15 +97,11 @@ DEBUG=* github-track-followers piecioshka
 
 ## Unit tests
 
-Use [Jasmine](https://jasmine.github.io/).
-
 ```bash
 npm test
 ```
 
 ## Code coverage
-
-Use [Istanbul](https://github.com/gotwarlost/istanbul).
 
 ```bash
 npm run coverage
@@ -110,4 +109,4 @@ npm run coverage
 
 ## License
 
-[The MIT License](http://piecioshka.mit-license.org) @ 2016
+[The MIT License](http://piecioshka.mit-license.org) @ 2016-2019

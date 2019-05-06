@@ -3,8 +3,8 @@
 'use strict';
 
 let program = require('commander');
-let Tracker = require('./src/tracker');
-let pkg = require('./package.json');
+let Tracker = require('../src/tracker');
+let pkg = require('../package.json');
 
 function display(username) {
     let tracker = new Tracker(username);
