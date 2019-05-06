@@ -5,7 +5,6 @@
 [![dependencies](https://david-dm.org/piecioshka/github-track-followers.svg)](https://github.com/piecioshka/github-track-followers)
 [![travis](https://img.shields.io/travis/piecioshka/github-track-followers.svg)](https://travis-ci.org/piecioshka/github-track-followers)
 [![coveralls](https://coveralls.io/repos/github/piecioshka/github-track-followers/badge.svg?branch=master)](https://coveralls.io/github/piecioshka/github-track-followers?branch=master)
-[![heroku](https://heroku-badge.herokuapp.com/?app=github-track-followers&style=flat&svg=1)](https://github-track-followers.herokuapp.com/)
 [![snyk](https://snyk.io/test/github/piecioshka/github-track-followers/badge.svg?targetFile=package.json)](https://snyk.io/test/github/piecioshka/github-track-followers?targetFile=package.json)
 
 :hammer: CLI to display followers of GitHub user
@@ -38,28 +37,6 @@ github-track-followers -h
 ```
 
 ## Examples
-
-### Example 0. `Error handling`
-
-#### ERROR: Try to display followers of user who is not exists
-
-```bash
-github-track-followers not-found-username-iu1h23j
-
-Not found
-```
-
-_Solution_: maybe you have typo?
-
-#### ERROR: Too many request in one day per one IP address
-
-```bash
-github-track-followers piecioshka
-
-API rate limit exceeded for 999.999.999.999. (But here's the good news: Authenticated requests get a higher rate limit. Check out the documentation for more details.)
-```
-
-_Solution_: you should rest though next 24 hours?
 
 ### Example 1. `Display user followers`
 
@@ -106,6 +83,28 @@ npm test
 ```bash
 npm run coverage
 ```
+
+## Troubleshooting
+
+### ERROR: Try to display followers of user who is not exists
+
+```bash
+github-track-followers not-found-username-iu1h23j
+
+Not found
+```
+
+_Solution_: maybe you have typo?
+
+### ERROR: Too many request in one day per one IP address
+
+```bash
+github-track-followers piecioshka
+
+API rate limit exceeded for 999.999.999.999. (But here's the good news: Authenticated requests get a higher rate limit. Check out the documentation for more details.)
+```
+
+_Solution_: you should rest though next 24 hours?
 
 ## License
 
