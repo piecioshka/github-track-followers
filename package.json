@@ -16,7 +16,7 @@
         "clear": "rm -rf reports/ coverage/",
         "clear:all": "rm -rf node_modules/ && npm run clear",
         "test": "jasmine test/**/*.test.js",
-        "coverage": "nyc npm run test && cat ./coverage/lcov.info | coveralls -v"
+        "coverage": "nyc npm run test && nyc report --reporter=text-lcov | coveralls -v"
     },
     "dependencies": {
         "colors": "^1.3.3",
