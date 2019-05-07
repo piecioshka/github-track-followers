@@ -25,6 +25,7 @@
         "url-lib": "^2.0.2"
     },
     "devDependencies": {
+        "coveralls": "^3.0.3",
         "jasmine": "^3.4.0",
         "nyc": "^14.1.0"
     },
