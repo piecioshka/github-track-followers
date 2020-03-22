@@ -2,7 +2,6 @@
 
 [![npm version](https://badge.fury.io/js/github-track-followers.svg)](https://badge.fury.io/js/github-track-followers)
 [![downloads count](https://img.shields.io/npm/dt/github-track-followers.svg)](https://www.npmjs.com/~piecioshka)
-[![dependencies](https://david-dm.org/piecioshka/github-track-followers.svg)](https://github.com/piecioshka/github-track-followers)
 [![travis](https://img.shields.io/travis/piecioshka/github-track-followers.svg)](https://travis-ci.org/piecioshka/github-track-followers)
 [![coveralls](https://coveralls.io/repos/github/piecioshka/github-track-followers/badge.svg?branch=master)](https://coveralls.io/github/piecioshka/github-track-followers?branch=master)
 [![snyk](https://snyk.io/test/github/piecioshka/github-track-followers/badge.svg?targetFile=package.json)](https://snyk.io/test/github/piecioshka/github-track-followers?targetFile=package.json)
