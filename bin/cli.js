@@ -2,12 +2,12 @@
 
 'use strict';
 
-let program = require('commander');
-let Tracker = require('../src/tracker');
-let pkg = require('../package.json');
+const program = require('commander');
+const Tracker = require('../src/tracker');
+const pkg = require('../package.json');
 
 function display(username) {
-    let tracker = new Tracker(username);
+    const tracker = new Tracker(username);
     tracker.fetchFollowers();
 }
 

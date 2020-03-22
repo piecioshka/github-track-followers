@@ -7,15 +7,15 @@ class Report {
     }
 
     display() {
-        let followers = Report.sortFollowersByLogin(this.followers);
-        let results = Report.serialize(this.username, followers);
+        const followers = Report.sortFollowersByLogin(this.followers);
+        const results = Report.serialize(this.username, followers);
         console.log(results);
     }
 
     static sortFollowersByLogin(followers) {
         return followers.sort((a, b) => {
-            let loginA = a.login.toLowerCase();
-            let loginB = b.login.toLowerCase();
+            const loginA = a.login.toLowerCase();
+            const loginB = b.login.toLowerCase();
 
             if (loginA > loginB) {
                 return 1;

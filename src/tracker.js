@@ -1,10 +1,10 @@
 'use strict';
 
-let colors = require('colors');
-let request = require('superagent');
-let URLParser = require('url-lib');
+const colors = require('colors');
+const request = require('superagent');
+const URLParser = require('url-lib');
 
-let Report = require('./report');
+const Report = require('./report');
 
 const PER_PAGE = 100;
 
@@ -16,7 +16,7 @@ class Tracker {
     }
 
     buildURL() {
-        let url = `https://api.github.com/users/${this.username}/followers?per_page=${PER_PAGE}&page=${this.page}`;
+        const url = `https://api.github.com/users/${this.username}/followers?per_page=${PER_PAGE}&page=${this.page}`;
         return URLParser.formatUrl(url, { page: this.page });
     }
 
@@ -31,13 +31,13 @@ class Tracker {
 
     parseResponse(err, response) {
         if (err) {
-            let errMessage = JSON.parse(response.text).message;
+            const errMessage = JSON.parse(response.text).message;
             Tracker.displayException(errMessage);
             return;
         }
 
         if (Tracker.isEmptyFollowerList(response)) {
-            let report = new Report(this.username, this.followers);
+            const report = new Report(this.username, this.followers);
             report.display();
             return;
         }
@@ -47,7 +47,7 @@ class Tracker {
     }
 
     fetchFollowers() {
-        let url = this.buildURL(this.page, this.username);
+        const url = this.buildURL();
         request.get(url).end(this.parseResponse.bind(this));
     }
 
