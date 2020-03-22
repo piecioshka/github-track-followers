@@ -85,7 +85,8 @@ npm run coverage
 
 ## Troubleshooting
 
-### ERROR: Try to display followers of user who is not exists
+<details>
+<summary>ERROR: Try to display followers of user who is not exists</summary>
 
 ```bash
 github-track-followers not-found-username-iu1h23j
@@ -95,7 +96,10 @@ Not found
 
 _Solution_: maybe you have typo?
 
-### ERROR: Too many request in one day per one IP address
+</details>
+
+<details>
+<summary>ERROR: Too many request in one day per one IP address</summary>
 
 ```bash
 github-track-followers piecioshka
@@ -105,6 +109,8 @@ API rate limit exceeded for 999.999.999.999. (But here's the good news: Authenti
 
 _Solution_: you should rest though next 24 hours?
 
+</details>
+
 ## License
 
-[The MIT License](http://piecioshka.mit-license.org) @ 2016-2019
+[The MIT License](http://piecioshka.mit-license.org) @ 2016
