@@ -4,7 +4,6 @@
 [![downloads count](https://img.shields.io/npm/dt/github-track-followers.svg)](https://www.npmjs.com/~piecioshka)
 [![travis](https://img.shields.io/travis/piecioshka/github-track-followers.svg)](https://travis-ci.org/piecioshka/github-track-followers)
 [![coveralls](https://coveralls.io/repos/github/piecioshka/github-track-followers/badge.svg?branch=master)](https://coveralls.io/github/piecioshka/github-track-followers?branch=master)
-[![snyk](https://snyk.io/test/github/piecioshka/github-track-followers/badge.svg?targetFile=package.json)](https://snyk.io/test/github/piecioshka/github-track-followers?targetFile=package.json)
 
 :hammer: CLI to display followers of GitHub user
 
@@ -17,22 +16,16 @@ npm install -g github-track-followers
 ## Usage
 
 ```bash
-github-track-followers -h
+> github-track-followers -h
 
-  Usage: github-track-followers [options] <username>
+Usage: github-track-followers -u <username>
 
+CLI to display followers of GitHub user
 
-  Commands:
-
-    <username>   display GitHub user followers
-    help [cmd]   display help for [cmd]
-
-  CLI to display followers of GitHub user
-
-  Options:
-
-    -h, --help     output usage information
-    -V, --version  output the version number
+Options:
+  -V, --version          output the version number
+  -u, --user <username>  fetch and display followers from GitHub
+  -h, --help             display help for command
 ```
 
 ## Examples
@@ -40,7 +33,7 @@ github-track-followers -h
 ### Example 1. `Display user followers`
 
 ```bash
-github-track-followers piecioshka
+github-track-followers -u piecioshka
 
 GitHub user "piecioshka" has followers (268):
 
@@ -60,7 +53,7 @@ Display whole list of followers.
 ### Example 2. `Save report to file`
 
 ```bash
-github-track-followers piecioshka > "/tmp/piecioshka-$(date +"%Y-%m-%d-%H-%M-%S").md"
+github-track-followers -u piecioshka > "/tmp/piecioshka-$(date +"%Y-%m-%d-%H-%M-%S").md"
 ```
 
 Command save report to file `/tmp/piecioshka-2016-11-18-22-47-52.md`.
@@ -68,7 +61,7 @@ Command save report to file `/tmp/piecioshka-2016-11-18-22-47-52.md`.
 ### Example 3. `Enter to debug mode`
 
 ```bash
-DEBUG=* github-track-followers piecioshka
+DEBUG=* github-track-followers -u piecioshka
 ```
 
 ## Unit tests
@@ -89,7 +82,7 @@ npm run coverage
 <summary>ERROR: Try to display followers of user who is not exists</summary>
 
 ```bash
-github-track-followers not-found-username-iu1h23j
+github-track-followers -u not-found-username-iu1h23j
 
 Not found
 ```
@@ -102,7 +95,7 @@ _Solution_: maybe you have typo?
 <summary>ERROR: Too many request in one day per one IP address</summary>
 
 ```bash
-github-track-followers piecioshka
+github-track-followers -u piecioshka
 
 API rate limit exceeded for 999.999.999.999. (But here's the good news: Authenticated requests get a higher rate limit. Check out the documentation for more details.)
 ```
@@ -113,4 +106,4 @@ _Solution_: you should rest though next 24 hours?
 
 ## License
 
-[The MIT License](http://piecioshka.mit-license.org) @ 2016
+[The MIT License](http://piecioshka.mit-license.org) @ 2016-2020

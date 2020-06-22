@@ -1,9 +1,10 @@
 'use strict';
 
-let Report = require('../src/report');
+const Report = require('../src/report');
 
 describe('General', () => {
-    let followers, username;
+    let followers;
+    let username;
 
     it('should be a constructor', () => {
         expect(typeof Report).toEqual('function');
@@ -18,7 +19,7 @@ describe('General', () => {
     });
 
     it('should serialize properly', () => {
-        let results = `
+        const results = `
 GitHub user "${username}" has followers (${followers.length}):\n
 * ${followers.map((follower) => follower.login).join('\n* ')}
 
@@ -28,12 +29,12 @@ GitHub user "${username}" has followers (${followers.length}):\n
     });
 
     it('should display properly', () => {
-        let r = new Report(username, followers);
+        const r = new Report(username, followers);
         // TODO(piecioshka); how test that method of Console object execute
     });
 
     it('should sorted followers properly', () => {
-        let sortedFollowers = Report.sortFollowersByLogin(followers).map(follower => follower.login);
+        const sortedFollowers = Report.sortFollowersByLogin(followers).map(follower => follower.login);
         expect(sortedFollowers.join(',')).toEqual('aaa,bbb');
     });
 });

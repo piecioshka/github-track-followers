@@ -2,7 +2,7 @@
 
 'use strict';
 
-const program = require('commander');
+const { program } = require('commander');
 const Tracker = require('../src/tracker');
 const pkg = require('../package.json');
 
@@ -14,7 +14,9 @@ function display(username) {
 program
     .version(pkg.version)
     .description(pkg.description)
-    .usage('[options] <username>')
-    .command('<username>', 'display GitHub user followers')
-    .action(display)
+    .usage('-u <username>')
+    .option('-u, --user <username>', 'fetch and display followers from GitHub')
+    .action(function ({ user }) {
+        display(user);
+    })
     .parse(process.argv);

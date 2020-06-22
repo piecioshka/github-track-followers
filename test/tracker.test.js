@@ -1,6 +1,6 @@
 'use strict';
 
-let Tracker = require('../src/tracker');
+const Tracker = require('../src/tracker');
 
 describe('General', () => {
     it('should be a constructor', () => {

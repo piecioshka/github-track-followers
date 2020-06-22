@@ -48,7 +48,10 @@ class Tracker {
 
     fetchFollowers() {
         const url = this.buildURL();
-        request.get(url).end(this.parseResponse.bind(this));
+        request
+            .get(url)
+            .set('User-Agent', 'Terminal')
+            .end(this.parseResponse.bind(this));
     }
 
     static isEmptyFollowerList(response) {
