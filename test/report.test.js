@@ -20,9 +20,10 @@ describe('General', () => {
 
     it('should serialize properly', () => {
         const results = `
-GitHub user "${username}" has followers (${followers.length}):\n
-* ${followers.map((follower) => follower.login).join('\n* ')}
+GitHub user "test-user" has followers (2):
 
+* bbb
+* aaa
 `;
 
         expect(Report.serialize(username, followers)).toEqual(results);
@@ -30,11 +31,14 @@ GitHub user "${username}" has followers (${followers.length}):\n
 
     it('should display properly', () => {
         const r = new Report(username, followers);
-        // TODO(piecioshka); how test that method of Console object execute
+        spyOn(console, 'log');
+        r.display();
+        expect(console.log).toHaveBeenCalledTimes(1);
     });
 
     it('should sorted followers properly', () => {
-        const sortedFollowers = Report.sortFollowersByLogin(followers).map(follower => follower.login);
+        const sortedFollowers = Report.sortFollowersByLogin(followers)
+            .map(follower => follower.login);
         expect(sortedFollowers.join(',')).toEqual('aaa,bbb');
     });
 });

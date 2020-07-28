@@ -17,6 +17,10 @@ program
     .usage('-u <username>')
     .option('-u, --user <username>', 'fetch and display followers from GitHub')
     .action(function ({ user }) {
-        display(user);
+        if (user) {
+            display(user);
+        } else {
+            program.help();
+        }
     })
     .parse(process.argv);

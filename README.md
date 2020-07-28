@@ -28,37 +28,39 @@ Options:
   -h, --help             display help for command
 ```
 
-## Examples
+## Use Cases
 
-### Example 1. `Display user followers`
+### `Display whole list of followers`
 
 ```bash
-github-track-followers -u piecioshka
+> github-track-followers -u piecioshka
 
 GitHub user "piecioshka" has followers (268):
 
 * a-dabrowski
 * aarek
 * adam-sokolowski
-* AdamKochanski
-* adamminiuk
-* agrezak
-* ahaczewski
-* AKalbarczyk
 ...
 ```
 
-Display whole list of followers.
-
-### Example 2. `Save report to file`
+### `Save report to file`
 
 ```bash
 github-track-followers -u piecioshka > "/tmp/piecioshka-$(date +"%Y-%m-%d-%H-%M-%S").md"
 ```
 
-Command save report to file `/tmp/piecioshka-2016-11-18-22-47-52.md`.
+```bash
+cat /tmp/piecioshka-2016-11-18-22-47-52.md
 
-### Example 3. `Enter to debug mode`
+GitHub user "piecioshka" has followers (268):
+
+* a-dabrowski
+* aarek
+* adam-sokolowski
+...
+```
+
+### `Enter to debug mode` (eg. display requests)
 
 ```bash
 DEBUG=* github-track-followers -u piecioshka

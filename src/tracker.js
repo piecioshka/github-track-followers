@@ -2,11 +2,9 @@
 
 const colors = require('colors');
 const request = require('superagent');
-const URLParser = require('url-lib');
 
 const Report = require('./report');
-
-const PER_PAGE = 100;
+const config = require('./config');
 
 class Tracker {
     constructor(username) {
@@ -16,8 +14,10 @@ class Tracker {
     }
 
     buildURL() {
-        const url = `https://api.github.com/users/${this.username}/followers?per_page=${PER_PAGE}&page=${this.page}`;
-        return URLParser.formatUrl(url, { page: this.page });
+        return config.githubUrl({
+            username: this.username,
+            page: this.page
+        });
     }
 
     tryNextPage() {
