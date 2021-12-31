@@ -20,13 +20,13 @@
     },
     "dependencies": {
         "colors": "^1.4.0",
-        "commander": "^5.0.0",
-        "superagent": "^5.2.2"
+        "commander": "^8.3.0",
+        "superagent": "^6.1.0"
     },
     "devDependencies": {
-        "coveralls": "^3.0.11",
-        "jasmine": "^3.5.0",
-        "nyc": "^15.0.0"
+        "coveralls": "^3.1.1",
+        "jasmine": "^3.10.0",
+        "nyc": "^15.1.0"
     },
     "files": [
         "src",
