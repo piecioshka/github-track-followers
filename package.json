@@ -15,8 +15,9 @@
     "scripts": {
         "clear": "rm -rf reports/ coverage/",
         "clear:all": "rm -rf node_modules/ && npm run clear",
-        "test": "jasmine --reporter=jasmine-console-reporter src/**/*.spec.js",
-        "coverage": "nyc npm run test && nyc report --reporter=text-lcov | coveralls -v"
+        "test": "jasmine --reporter=jasmine-console-reporter src/**/*.spec.js",  
+        "coverage": "nyc npm run test && nyc report --reporter=html",
+        "coveralls": "nyc npm run test && nyc report --reporter=text-lcov | coveralls -v"
     },
     "dependencies": {
         "colors": "^1.4.0",
