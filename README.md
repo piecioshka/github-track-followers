@@ -3,7 +3,6 @@
 [![npm version](https://badge.fury.io/js/github-track-followers.svg)](https://badge.fury.io/js/github-track-followers)
 [![downloads count](https://img.shields.io/npm/dt/github-track-followers.svg)](https://www.npmjs.com/~piecioshka)
 [![travis-ci](https://api.travis-ci.com/piecioshka/github-track-followers.svg?branch=master)](https://app.travis-ci.com/github/piecioshka/github-track-followers)
-[![coveralls](https://coveralls.io/repos/github/piecioshka/github-track-followers/badge.svg?branch=master)](https://coveralls.io/github/piecioshka/github-track-followers?branch=master)
 
 :hammer: CLI to display followers of GitHub user
 
