@@ -1,10 +1,18 @@
-'use strict';
+"use strict";
 
-const colors = require('colors');
-const request = require('superagent');
+const colors = require("colors");
+const request = require("superagent");
 
-const Report = require('./report');
-const config = require('./config');
+const Report = require("./report");
+const config = require("./config");
+
+function parseError(err, response) {
+    let message = err.message;
+    try {
+        message = JSON.parse(response.text).message;
+    } catch (_err) {}
+    return message;
+}
 
 class Tracker {
     constructor(username) {
@@ -16,46 +24,46 @@ class Tracker {
     buildURL() {
         return config.githubUrl({
             username: this.username,
-            page: this.page
+            page: this.page,
         });
     }
 
-    tryNextPage() {
+    _tryNextPage(cb) {
         this.page++;
-        this.fetchFollowers();
+        this.fetchFollowers(cb);
     }
 
-    collectFollowers(response) {
+    _collectFollowers(response) {
         this.followers.push(...response.body);
     }
 
-    parseResponse(err, response) {
-        if (err) {
-            const errMessage = JSON.parse(response.text).message;
-            Tracker.displayException(errMessage);
-            return;
-        }
-
-        if (Tracker.isEmptyFollowerList(response)) {
-            const report = new Report(this.username, this.followers);
-            report.display();
-            return;
-        }
-
-        this.collectFollowers(response);
-        this.tryNextPage();
-    }
-
-    fetchFollowers() {
+    fetchFollowers(cb) {
         const url = this.buildURL();
         request
             .get(url)
-            .set('User-Agent', 'Terminal')
-            .end(this.parseResponse.bind(this));
+            .set("User-Agent", "Terminal")
+            .end((err, response) => {
+                if (err) {
+                    const errMessage = parseError(err, response);
+                    Tracker.displayException(errMessage);
+                    cb && cb();
+                    return;
+                }
+
+                if (Tracker.isEmptyFollowerList(response)) {
+                    const report = new Report(this.username, this.followers);
+                    report.display();
+                    cb && cb();
+                    return;
+                }
+
+                this._collectFollowers(response);
+                this._tryNextPage(cb);
+            });
     }
 
     static isEmptyFollowerList(response) {
-        return (response && response.body.length === 0);
+        return response && response.body.length === 0;
     }
 
     static displayException(error) {

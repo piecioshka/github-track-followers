@@ -15,7 +15,7 @@ npm install -g github-track-followers
 ## Usage
 
 ```bash
-> github-track-followers -h
+github-track-followers -h
 
 Usage: github-track-followers -u <username>
 
@@ -27,12 +27,12 @@ Options:
   -h, --help             display help for command
 ```
 
-## Use Cases
+## Examples
 
-### `Display whole list of followers`
+### :arrow_right: Use case: Display whole list of followers
 
 ```bash
-> github-track-followers -u piecioshka
+github-track-followers -u piecioshka
 
 GitHub user "piecioshka" has followers (268):
 
@@ -42,7 +42,7 @@ GitHub user "piecioshka" has followers (268):
 ...
 ```
 
-### `Save report to file`
+### :arrow_right: Use case: Save report to file
 
 ```bash
 github-track-followers -u piecioshka > "/tmp/piecioshka-$(date +"%Y-%m-%d-%H-%M-%S").md"
@@ -59,22 +59,10 @@ GitHub user "piecioshka" has followers (268):
 ...
 ```
 
-### `Enter to debug mode` (eg. display requests)
+### :arrow_right: Use case: Enter to debug mode (eg. display requests)
 
 ```bash
 DEBUG=* github-track-followers -u piecioshka
-```
-
-## Unit tests
-
-```bash
-npm test
-```
-
-## Code coverage
-
-```bash
-npm run coverage
 ```
 
 ## Troubleshooting
@@ -107,4 +95,4 @@ _Solution_: you should rest though next 24 hours?
 
 ## License
 
-[The MIT License](http://piecioshka.mit-license.org) @ 2016-2020
+[The MIT License](http://piecioshka.mit-license.org) @ 2016

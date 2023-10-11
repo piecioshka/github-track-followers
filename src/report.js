@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 
 class Report {
     constructor(username, followers) {
@@ -30,7 +30,7 @@ class Report {
     static serialize(username, followers) {
         return `
 GitHub user "${username}" has followers (${followers.length}):\n
-* ${followers.map((follower) => follower.login).join('\n* ')}
+* ${followers.map((follower) => follower.login).join("\n* ")}
 `;
     }
 }
