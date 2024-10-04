@@ -6,11 +6,11 @@
     "author": {
         "name": "Piotr Kowalski",
         "email": "piecioshka@gmail.com",
-        "url": "http://piecioshka.pl"
+        "url": "https://piecioshka.pl"
     },
     "repository": {
         "type": "git",
-        "url": "http://github.com/piecioshka/github-track-followers.git"
+        "url": "git@github.com:piecioshka/github-track-followers.git"
     },
     "scripts": {
         "clear": "rm -rf reports/ coverage/",
