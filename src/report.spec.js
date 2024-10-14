@@ -19,12 +19,10 @@ describe("Report", () => {
     });
 
     it("should serialize properly", () => {
-        const results = `
-GitHub user "test-user" has followers (2):
+        const results = `GitHub user "test-user" has followers (2):
 
 * bbb
-* aaa
-`;
+* aaa`;
 
         expect(Report.serialize(username, followers)).toEqual(results);
     });
