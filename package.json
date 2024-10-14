@@ -10,7 +10,7 @@
     },
     "repository": {
         "type": "git",
-        "url": "git@github.com:piecioshka/github-track-followers.git"
+        "url": "git+ssh://git@github.com/piecioshka/github-track-followers.git"
     },
     "scripts": {
         "clear": "rm -rf reports/ coverage/",
@@ -54,7 +54,6 @@
         "gh",
         "git"
     ],
-    "preferGlobal": true,
     "bin": {
         "github-track-followers": "bin/cli.js"
     }
