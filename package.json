@@ -33,10 +33,11 @@
         "node": ">=12"
     },
     "files": [
-        "src",
         "bin",
+        "src",
         "package.json",
-        "README.md"
+        "README.md",
+        "!**/*.spec.*"
     ],
     "keywords": [
         "github",
