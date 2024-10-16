@@ -6,7 +6,7 @@
 [![license](https://img.shields.io/npm/l/github-track-followers.svg)](https://piecioshka.mit-license.org)
 [![github-ci](https://github.com/piecioshka/github-track-followers/actions/workflows/testing.yml/badge.svg)](https://github.com/piecioshka/github-track-followers/actions/workflows/testing.yml)
 
-:hammer: CLI to display followers of GitHub user
+🔨 CLI to display followers of GitHub user
 
 ## Installation
 
@@ -31,7 +31,7 @@ Options:
 
 ## Examples
 
-### :arrow_right: Use case: Display whole list of followers
+### ➡️ Use case: Display whole list of followers
 
 ```bash
 github-track-followers -u piecioshka
@@ -44,7 +44,7 @@ GitHub user "piecioshka" has followers (268):
 ...
 ```
 
-### :arrow_right: Use case: Save report to file
+### ➡️ Use case: Save report to file
 
 ```bash
 github-track-followers -u piecioshka > "/tmp/piecioshka-$(date +"%Y-%m-%d-%H-%M-%S").md"
@@ -61,7 +61,7 @@ GitHub user "piecioshka" has followers (268):
 ...
 ```
 
-### :arrow_right: Use case: Enter to debug mode (eg. display requests)
+### ➡️ Use case: Enter to debug mode (eg. display requests)
 
 ```bash
 DEBUG=* github-track-followers -u piecioshka
