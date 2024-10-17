@@ -14,15 +14,17 @@ describe("Report", () => {
     });
 
     beforeEach(() => {
-        followers = [{ login: "bbb" }, { login: "aaa" }];
+        followers = [{ login: "bbb" }, { login: "aaa" }, { login: "ccc" }, { login: "ccc" }];
         username = "test-user";
     });
 
     it("should serialize properly", () => {
-        const results = `GitHub user "test-user" has followers (2):
+        const results = `GitHub user "test-user" has followers (4):
 
 * bbb
-* aaa`;
+* aaa
+* ccc
+* ccc`;
 
         expect(Report.serialize(username, followers)).toEqual(results);
     });
@@ -38,6 +40,6 @@ describe("Report", () => {
         const sortedFollowers = Report.sortFollowersByLogin(followers).map(
             (follower) => follower.login
         );
-        expect(sortedFollowers.join(",")).toEqual("aaa,bbb");
+        expect(sortedFollowers.join(",")).toEqual("aaa,bbb,ccc,ccc");
     });
 });
