@@ -37,13 +37,30 @@ Options:
 
 ```bash
 github-track-followers -u piecioshka
+```
 
+```plaintext
 piecioshka's GitHub profile followers (268):
 
 - a-dabrowski
 - aarek
 - adam-sokolowski
-...
+- ...
+```
+
+### ➡️ Use case: Use JSON format
+
+```bash
+github-track-followers -u piecioshka -f json
+```
+
+```json
+[
+    { "login": "a-dabrowski" },
+    { "login": "aarek" },
+    { "login": "adam-sokolowski" },
+    // ...
+]
 ```
 
 ### ➡️ Use case: Enter to debug mode (eg. display requests)
