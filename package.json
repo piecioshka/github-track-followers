@@ -1,6 +1,6 @@
 {
     "name": "github-track-followers",
-    "version": "2.0.10",
+    "version": "2.1.0",
     "description": "🔨 CLI to display GitHub profile followers",
     "license": "MIT",
     "author": {
