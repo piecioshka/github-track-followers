@@ -1,6 +1,6 @@
 "use strict";
 
-const Tracker = require("./tracker");
+const { Tracker } = require("./tracker");
 const nock = require("nock");
 
 describe("Tracker", () => {

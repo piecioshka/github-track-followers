@@ -39,33 +39,16 @@ github-track-followers -u piecioshka
 
 GitHub user "piecioshka" has followers (268):
 
-* a-dabrowski
-* aarek
-* adam-sokolowski
-...
-```
-
-### ➡️ Use case: Save report to file
-
-```bash
-github-track-followers -u piecioshka > "/tmp/piecioshka-$(date +"%Y-%m-%d-%H-%M-%S").md"
-```
-
-```bash
-cat /tmp/piecioshka-2016-11-18-22-47-52.md
-
-GitHub user "piecioshka" has followers (268):
-
-* a-dabrowski
-* aarek
-* adam-sokolowski
+- a-dabrowski
+- aarek
+- adam-sokolowski
 ...
 ```
 
 ### ➡️ Use case: Enter to debug mode (eg. display requests)
 
 ```bash
-DEBUG=* github-track-followers -u piecioshka
+DEBUG="*" github-track-followers -u piecioshka
 ```
 
 ## Troubleshooting

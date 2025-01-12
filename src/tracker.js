@@ -3,7 +3,7 @@
 const colors = require("colors");
 const request = require("superagent");
 
-const Report = require("./report");
+const { Report } = require("./report");
 const config = require("./config");
 
 function parseError(err, response) {
@@ -51,8 +51,12 @@ class Tracker {
                 }
 
                 if (Tracker.isEmptyFollowerList(response)) {
-                    const report = new Report(this.username, this.followers);
-                    report.display();
+                    const report = new Report(
+                        "plain",
+                        this.username,
+                        this.followers
+                    );
+                    report.render();
                     cb && cb();
                     return;
                 }
@@ -71,4 +75,6 @@ class Tracker {
     }
 }
 
-module.exports = Tracker;
+module.exports = {
+    Tracker,
+};

@@ -1,36 +1,34 @@
 "use strict";
 
+const serializersMap = require("./serializers/");
+const { stringSorter } = require("./sorters/string.sorter");
+
 class Report {
-    constructor(username, followers) {
+    constructor(type, username, followers) {
+        this.type = type;
         this.username = username;
         this.followers = followers;
     }
 
-    display() {
-        const followers = Report.sortFollowersByLogin(this.followers);
-        const results = Report.serialize(this.username, followers);
+    render() {
+        const followers = stringSorter(
+            this.followers,
+            (follower) => follower.login
+        );
+        const results = this.serialize(this.username, followers);
         console.log(results);
     }
 
-    static sortFollowersByLogin(followers) {
-        return followers.sort((a, b) => {
-            const loginA = a.login.toLowerCase();
-            const loginB = b.login.toLowerCase();
-
-            if (loginA > loginB) {
-                return 1;
-            } else if (loginA < loginB) {
-                return -1;
-            } else {
-                return 0;
-            }
-        });
-    }
-
-    static serialize(username, followers) {
-        return `GitHub user "${username}" has followers (${followers.length}):\n
-* ${followers.map((follower) => follower.login).join("\n* ")}`;
+    serialize(username, followers) {
+        const serializerConstructor = serializersMap[this.type];
+        if (!serializerConstructor) {
+            throw new Error(`Unknown serializer: ${this.type}`);
+        }
+        const serializer = new serializerConstructor();
+        return serializer.serialize({ username, followers });
     }
 }
 
-module.exports = Report;
+module.exports = {
+    Report,
+};
