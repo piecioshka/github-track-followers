@@ -1,5 +1,5 @@
 class JSONSerializer {
-    serialize({ username, followers }) {
+    serialize({ followers }) {
         const data = followers
             .map(({ login }) => {
                 const row = [];

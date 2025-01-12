@@ -1,3 +1,4 @@
+const { followersFactory } = require("../../mocks/followers.mock");
 const { PlainSerializer } = require("./plain.serializer");
 
 describe("PlainSerializer", () => {
@@ -5,24 +6,19 @@ describe("PlainSerializer", () => {
     let username;
 
     beforeEach(() => {
-        followers = [
-            { login: "bbb" },
-            { login: "aaa" },
-            { login: "ccc" },
-            { login: "ccc" },
-        ];
+        followers = followersFactory();
         username = "test-user";
     });
 
     it("should serialize properly", () => {
-        const results = `GitHub user "test-user" has followers (4):
+        const serializer = new PlainSerializer();
+        expect(
+            serializer.serialize({ username, followers })
+        ).toEqual(`GitHub user "test-user" has followers (4):
 
 - bbb
 - aaa
 - ccc
-- ccc`;
-
-        const serializer = new PlainSerializer();
-        expect(serializer.serialize({ username, followers })).toEqual(results);
+- ccc`);
     });
 });

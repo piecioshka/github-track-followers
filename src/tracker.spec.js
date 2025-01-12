@@ -1,21 +1,17 @@
 "use strict";
 
+const { trackOptionsFactory } = require("../mocks/trackOptions.mock");
 const { Tracker } = require("./tracker");
 const nock = require("nock");
 
 describe("Tracker", () => {
-    it("should be a constructor", () => {
-        expect(typeof Tracker).toEqual("function");
-        expect(() => {
-            return new Tracker();
-        }).not.toThrow();
-    });
-
     describe("buildURL", () => {
-        it("should returns a string", () => {
-            const t = new Tracker();
+        it("should returns a URL point to github.com with username", () => {
+            const opts = trackOptionsFactory({ username: "piecioshka" });
+            const t = new Tracker(opts);
             const url = t.buildURL();
             expect(url).toMatch(/github\.com/);
+            expect(url).toMatch(new RegExp(opts.username));
         });
     });
 
@@ -30,7 +26,8 @@ describe("Tracker", () => {
                 .get("/users/piecioshka/followers?per_page=100&page=2")
                 .reply(200, []);
 
-            const t = new Tracker("piecioshka");
+            const opts = trackOptionsFactory({ username: "piecioshka" });
+            const t = new Tracker(opts);
             spyOn(console, "log");
             t.fetchFollowers(() => {
                 expect(t.followers).toEqual([follower1]);
@@ -42,7 +39,8 @@ describe("Tracker", () => {
         it("should handle errors", (done) => {
             nock("https://fake-domain.com").get("/").reply(500, "");
 
-            const t = new Tracker("piecioshka");
+            const opts = trackOptionsFactory({ username: "piecioshka" });
+            const t = new Tracker(opts);
             t.buildURL = () => {
                 return "https://fake-domain.com";
             };

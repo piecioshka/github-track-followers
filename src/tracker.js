@@ -15,7 +15,7 @@ function parseError(err, response) {
 }
 
 class Tracker {
-    constructor(username, format) {
+    constructor({ format, username }) {
         this.page = 1;
         this.username = username;
         this.format = format;
@@ -52,11 +52,12 @@ class Tracker {
                 }
 
                 if (Tracker.isEmptyFollowerList(response)) {
-                    const report = new Report(
-                        this.format,
-                        this.username,
-                        this.followers
-                    );
+                    const { format, username, followers } = this;
+                    const report = new Report({
+                        format,
+                        username,
+                        followers,
+                    });
                     report.render();
                     cb && cb();
                     return;

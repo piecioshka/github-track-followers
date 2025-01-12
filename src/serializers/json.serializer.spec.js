@@ -1,3 +1,4 @@
+const { followersFactory } = require("../../mocks/followers.mock");
 const { JSONSerializer } = require("./json.serializer");
 
 describe("JSONSerializer", () => {
@@ -5,23 +6,17 @@ describe("JSONSerializer", () => {
     let username;
 
     beforeEach(() => {
-        followers = [
-            { login: "bbb" },
-            { login: "aaa" },
-            { login: "ccc" },
-            { login: "ccc" },
-        ];
+        followers = followersFactory();
         username = "test-user";
     });
 
     it("should serialize properly", () => {
-        const results = `[
+        const serializer = new JSONSerializer();
+        expect(serializer.serialize({ followers })).toEqual(`[
   { "login": "bbb" },
   { "login": "aaa" },
   { "login": "ccc" },
   { "login": "ccc" }
-]`;
-        const serializer = new JSONSerializer();
-        expect(serializer.serialize({ username, followers })).toEqual(results);
+]`);
     });
 });

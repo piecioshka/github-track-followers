@@ -4,8 +4,8 @@ const serializersMap = require("./serializers/");
 const { stringSorter } = require("./sorters/string.sorter");
 
 class Report {
-    constructor(type, username, followers) {
-        this.type = type;
+    constructor({ format, username, followers }) {
+        this.format = format;
         this.username = username;
         this.followers = followers;
     }
@@ -15,14 +15,15 @@ class Report {
             this.followers,
             (follower) => follower.login
         );
-        const results = this.serialize(this.username, followers);
+        const results = this.serialize(followers);
         console.log(results);
     }
 
-    serialize(username, followers) {
-        const serializerConstructor = serializersMap[this.type];
+    serialize(followers) {
+        const { username } = this;
+        const serializerConstructor = serializersMap[this.format];
         if (!serializerConstructor) {
-            throw new Error(`Unknown serializer: ${this.type}`);
+            throw new Error(`Unknown serializer: ${this.format}`);
         }
         const serializer = new serializerConstructor();
         return serializer.serialize({ username, followers });
