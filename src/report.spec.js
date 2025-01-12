@@ -1,6 +1,7 @@
 "use strict";
 
 const { followersFactory } = require("../mocks/followers.mock");
+const { defaultFormat } = require("./config");
 const { Report } = require("./report");
 
 describe("Report", () => {
@@ -14,7 +15,7 @@ describe("Report", () => {
 
     it("should render properly", () => {
         const report = new Report({
-            format: "plain",
+            format: defaultFormat,
             username,
             followers,
         });

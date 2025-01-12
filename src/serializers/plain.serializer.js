@@ -1,6 +1,6 @@
 class PlainSerializer {
     serialize({ username, followers }) {
-        return `GitHub user "${username}" has followers (${followers.length}):\n
+        return `${username}'s GitHub profile followers (${followers.length}):\n
 - ${followers.map((follower) => follower.login).join("\n- ")}`;
     }
 }

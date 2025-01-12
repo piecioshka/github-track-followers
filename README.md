@@ -7,7 +7,7 @@
 [![license](https://img.shields.io/npm/l/github-track-followers.svg)](https://piecioshka.mit-license.org)
 [![github-ci](https://github.com/piecioshka/github-track-followers/actions/workflows/testing.yml/badge.svg)](https://github.com/piecioshka/github-track-followers/actions/workflows/testing.yml)
 
-🔨 CLI to display followers of GitHub user
+🔨 CLI to display GitHub profile followers
 
 ## Installation
 
@@ -20,14 +20,15 @@ npm install -g github-track-followers
 ```bash
 github-track-followers -h
 
-Usage: github-track-followers -u <username>
+Usage: github-track-followers -u <string> [-f <string>] [-a]
 
-CLI to display followers of GitHub user
+🔨 CLI to display GitHub profile followers
 
 Options:
-  -V, --version          output the version number
-  -u, --user <username>  fetch and display followers from GitHub
-  -h, --help             display help for command
+  -V, --version            output the version number
+  -u, --username <string>  fetch GitHub followers of this user
+  -f, --format <string>    output format: json, plain (default: "plain")
+  -h, --help               display help for command
 ```
 
 ## Examples
@@ -37,7 +38,7 @@ Options:
 ```bash
 github-track-followers -u piecioshka
 
-GitHub user "piecioshka" has followers (268):
+piecioshka's GitHub profile followers (268):
 
 - a-dabrowski
 - aarek

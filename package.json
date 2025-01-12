@@ -1,7 +1,7 @@
 {
     "name": "github-track-followers",
     "version": "2.0.10",
-    "description": "🔨 CLI to display followers of GitHub user",
+    "description": "🔨 CLI to display GitHub profile followers",
     "license": "MIT",
     "author": {
         "name": "Piotr Kowalski",
