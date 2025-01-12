@@ -15,9 +15,10 @@ function parseError(err, response) {
 }
 
 class Tracker {
-    constructor(username) {
+    constructor(username, format) {
         this.page = 1;
         this.username = username;
+        this.format = format;
         this.followers = [];
     }
 
@@ -52,7 +53,7 @@ class Tracker {
 
                 if (Tracker.isEmptyFollowerList(response)) {
                     const report = new Report(
-                        "plain",
+                        this.format,
                         this.username,
                         this.followers
                     );

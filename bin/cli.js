@@ -5,20 +5,24 @@
 const { program } = require("commander");
 const { Tracker } = require("../src/tracker");
 const pkg = require("../package.json");
-
-function display(username) {
-    const tracker = new Tracker(username);
-    tracker.fetchFollowers();
-}
+const { defaultFormat } = require("../src/config");
+const serializersMap = require("../src/serializers/");
 
 program
     .version(pkg.version)
     .description(pkg.description)
     .usage("-u <username>")
     .option("-u, --user <username>", "fetch and display followers from GitHub")
-    .action(function ({ user }) {
+    .usage("-f <format>")
+    .option("-f, --format <format>", "output format: json, plain")
+    .action(function ({ user, format: passedFormat }) {
+        const format =
+            passedFormat && serializersMap.hasOwnProperty(passedFormat)
+                ? passedFormat
+                : defaultFormat;
         if (user) {
-            display(user);
+            const tracker = new Tracker(user, format);
+            tracker.fetchFollowers();
         } else {
             program.help();
         }

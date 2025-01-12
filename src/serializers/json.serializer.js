@@ -1,13 +1,15 @@
 class JSONSerializer {
     serialize({ username, followers }) {
-        const data = followers.map((follower) => {
-            return {
-                login: follower.login,
-                id: follower.id,
-                avatar_url: follower.avatar_url,
-            };
-        });
-        return JSON.stringify(data, null, 2);
+        const data = followers
+            .map(({ login }) => {
+                const row = [];
+                if (login) {
+                    row.push(`"login": "${login}"`);
+                }
+                return "  { " + row.join(", ") + " }";
+            })
+            .join(",\n");
+        return `[\n${data}\n]`;
     }
 }
 

@@ -23,7 +23,6 @@ describe("Tracker", () => {
         it("should update followers list", (done) => {
             const follower1 = {
                 login: "fake-login",
-                id: 123,
             };
             nock("https://api.github.com/")
                 .get("/users/piecioshka/followers?per_page=100&page=1")
