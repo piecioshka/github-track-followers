@@ -1,7 +1,7 @@
 function stringSorter(list, getValue) {
     return list.sort((a, b) => {
-        const valueA = getValue(a).toLowerCase();
-        const valueB = getValue(b).toLowerCase();
+        const valueA = getValue(a);
+        const valueB = getValue(b);
 
         if (valueA > valueB) {
             return 1;

@@ -11,9 +11,8 @@ class Report {
     }
 
     render() {
-        const followers = stringSorter(
-            this.followers,
-            (follower) => follower.login
+        const followers = stringSorter(this.followers, (follower) =>
+            follower.login.toLowerCase()
         );
         const results = this.serialize(followers);
         console.log(results);
