@@ -41,10 +41,10 @@
         "!**/*.spec.*"
     ],
     "keywords": [
+        "cli",
         "github",
         "track",
         "followers",
-        "cli",
         "listen",
         "util",
         "request",
