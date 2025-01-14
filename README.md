@@ -1,5 +1,6 @@
 # github-track-followers
 
+[![cli-available](https://badgen.net/static/cli/available/?icon=terminal)](https://runkit.com/npm/github-track-followers)
 [![node version](https://img.shields.io/node/v/github-track-followers.svg)](https://www.npmjs.com/package/github-track-followers)
 [![npm version](https://badge.fury.io/js/github-track-followers.svg)](https://badge.fury.io/js/github-track-followers)
 [![downloads count](https://img.shields.io/npm/dt/github-track-followers.svg)](https://www.npmjs.com/package/github-track-followers)
@@ -9,13 +10,13 @@
 
 🔨 CLI to display GitHub profile followers
 
-## Installation
+## CLI
+
+Installation:
 
 ```bash
 npm install -g github-track-followers
 ```
-
-## Usage
 
 ```bash
 github-track-followers -h
