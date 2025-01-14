@@ -27,7 +27,8 @@ program
                         ).join(", ")}`
                     )
                 );
-                program.help();
+                program.outputHelp();
+                process.exit(3);
             }
             return format;
         },
@@ -40,7 +41,8 @@ program
             console.error(
                 colors.red("Missing required argument: -u, --username")
             );
-            program.help();
+            program.outputHelp();
+            process.exit(2);
         }
 
         const tracker = new Tracker(opts);

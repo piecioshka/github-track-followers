@@ -74,6 +74,7 @@ class Tracker {
 
     static displayException(error) {
         console.error(colors.red(error));
+        process.exit(1);
     }
 }
 
