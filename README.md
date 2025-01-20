@@ -19,19 +19,7 @@ npm install -g github-track-followers
 ```
 
 ```bash
-github-track-followers -h
-```
-
-```plaintext
-Usage: github-track-followers -u <string> [-f <string>] [-a]
-
-🔨 CLI to display GitHub profile followers
-
-Options:
-  -V, --version            output the version number
-  -u, --username <string>  fetch GitHub followers of this user
-  -f, --format <string>    output format: json, plain (default: "plain")
-  -h, --help               display help for command
+github-track-followers -u <username> [-f <format>]
 ```
 
 ## Examples

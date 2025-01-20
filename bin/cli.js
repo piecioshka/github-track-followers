@@ -13,7 +13,7 @@ const debug = require("debug")("github-track-followers:cli");
 program
     .version(pkg.version)
     .description(pkg.description)
-    .usage("-u <string> [-f <string>] [-a]")
+    .usage("-u <username> [-f <format>]")
     .option("-u, --username <string>", "fetch GitHub followers of this user")
     .option(
         "-f, --format <string>",
