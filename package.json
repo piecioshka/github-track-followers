@@ -11,8 +11,8 @@
     "scripts": {
         "clear": "rm -rf reports/ coverage/",
         "clear:all": "rm -rf node_modules/ && npm run clear",
-        "test": "jasmine --reporter=jasmine-console-reporter 'src/**/*.spec.js'",
-        "coverage": "nyc npm run test && nyc report --reporter=html"
+        "test": "jest --verbose",
+        "coverage": "jest --coverage"
     },
     "dependencies": {
         "colors": "^1.4.0",
@@ -21,17 +21,15 @@
         "superagent": "^10.1.1"
     },
     "devDependencies": {
-        "jasmine": "^5.5.0",
-        "jasmine-console-reporter": "^3.1.0",
-        "nock": "^13.5.6",
-        "nyc": "^17.1.0"
+        "jest": "^29.7.0",
+        "nock": "^13.5.6"
     },
     "repository": {
         "type": "git",
         "url": "git+ssh://git@github.com/piecioshka/github-track-followers.git"
     },
     "engines": {
-        "node": ">=12"
+        "node": ">=16"
     },
     "files": [
         "bin",

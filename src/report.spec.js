@@ -30,7 +30,7 @@ describe("Report", () => {
             username,
             followers,
         });
-        spyOn(console, "log");
+        jest.spyOn(console, "log");
         report.render();
         expect(console.log).toHaveBeenCalledTimes(1);
     });

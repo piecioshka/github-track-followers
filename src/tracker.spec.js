@@ -28,7 +28,7 @@ describe("Tracker", () => {
 
             const opts = trackOptionsFactory({ username: "piecioshka" });
             const t = new Tracker(opts);
-            spyOn(console, "log");
+            jest.spyOn(console, "log");
             t.fetchFollowers(() => {
                 expect(t.followers).toEqual([follower1]);
                 expect(console.log).toHaveBeenCalledTimes(1);
@@ -44,8 +44,7 @@ describe("Tracker", () => {
             t.buildURL = () => {
                 return "https://fake-domain.com";
             };
-            spyOn(console, "error");
-            spyOn(process, "exit");
+            jest.spyOn(console, "error");
             t.fetchFollowers(() => {
                 expect(console.error).toHaveBeenCalledTimes(1);
                 expect(process.exit).toHaveBeenCalledWith(1);
