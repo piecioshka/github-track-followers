@@ -45,8 +45,10 @@ describe("Tracker", () => {
                 return "https://fake-domain.com";
             };
             spyOn(console, "error");
+            spyOn(process, "exit");
             t.fetchFollowers(() => {
                 expect(console.error).toHaveBeenCalledTimes(1);
+                expect(process.exit).toHaveBeenCalledWith(1);
                 done();
             });
         });
