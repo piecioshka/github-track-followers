@@ -10,6 +10,8 @@
 
 🔨 CLI to display GitHub profile followers
 
+![](demo/github-track-followers.gif)
+
 ## CLI
 
 Installation:
