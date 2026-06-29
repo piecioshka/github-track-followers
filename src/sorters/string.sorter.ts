@@ -1,4 +1,7 @@
-function stringSorter(list, getValue) {
+export function stringSorter<T>(
+    list: T[],
+    getValue: (item: T) => string
+): T[] {
     return list.sort((a, b) => {
         const valueA = getValue(a);
         const valueB = getValue(b);
@@ -12,7 +15,3 @@ function stringSorter(list, getValue) {
         }
     });
 }
-
-module.exports = {
-    stringSorter,
-};
