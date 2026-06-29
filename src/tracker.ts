@@ -1,44 +1,53 @@
-"use strict";
+import * as colors from "colors/safe";
+import request from "superagent";
 
-const colors = require("colors");
-const request = require("superagent");
+import { Report } from "./report";
+import { githubUrl } from "./config";
+import type { Follower } from "./types";
 
-const { Report } = require("./report");
-const config = require("./config");
+export interface TrackerOptions {
+    format: string;
+    username: string;
+}
 
-function parseError(err, response) {
+function parseError(err: Error, response?: request.Response): string {
     let message = err.message;
     try {
-        message = JSON.parse(response.text).message;
+        message = JSON.parse(response?.text ?? "").message;
     } catch (_err) {}
     return message;
 }
 
-class Tracker {
-    constructor({ format, username }) {
+export class Tracker {
+    page: number;
+    username: string;
+    format: string;
+    followers: Follower[];
+
+    constructor({ format, username }: TrackerOptions) {
         this.page = 1;
         this.username = username;
         this.format = format;
         this.followers = [];
     }
 
-    buildURL() {
-        return config.githubUrl({
+    buildURL(): string {
+        return githubUrl({
             username: this.username,
             page: this.page,
         });
     }
 
-    _tryNextPage(cb) {
+    _tryNextPage(cb?: () => void): void {
         this.page++;
         this.fetchFollowers(cb);
     }
 
-    _collectFollowers(response) {
+    _collectFollowers(response: request.Response): void {
         this.followers.push(...response.body);
     }
 
-    fetchFollowers(cb) {
+    fetchFollowers(cb?: () => void): void {
         const url = this.buildURL();
         request
             .get(url)
@@ -68,16 +77,12 @@ class Tracker {
             });
     }
 
-    static isEmptyFollowerList(response) {
-        return response && response.body.length === 0;
+    static isEmptyFollowerList(response: request.Response): boolean {
+        return Boolean(response) && response.body.length === 0;
     }
 
-    static displayException(error) {
+    static displayException(error: string): void {
         console.error(colors.red(error));
         process.exit(1);
     }
 }
-
-module.exports = {
-    Tracker,
-};

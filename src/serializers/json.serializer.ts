@@ -1,5 +1,7 @@
-class JSONSerializer {
-    serialize({ followers }) {
+import type { Serializer, SerializerInput } from "../types";
+
+export class JSONSerializer implements Serializer {
+    serialize({ followers }: SerializerInput): string {
         const data = followers
             .map(({ login }) => {
                 return `  { "login": "${login}" }`;
@@ -8,7 +10,3 @@ class JSONSerializer {
         return `[\n${data}\n]`;
     }
 }
-
-module.exports = {
-    JSONSerializer,
-};

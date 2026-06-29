@@ -1,12 +1,13 @@
-"use strict";
+import { describe, it, expect, vi, beforeEach } from "vitest";
 
-const { followersFactory } = require("../mocks/followers.mock");
-const { defaultFormat } = require("./config");
-const { Report } = require("./report");
+import { followersFactory } from "../mocks/followers.mock";
+import { defaultFormat } from "./config";
+import { Report } from "./report";
+import type { Follower } from "./types";
 
 describe("Report", () => {
-    let followers;
-    let username;
+    let followers: Follower[];
+    let username: string;
 
     beforeEach(() => {
         followers = followersFactory();
@@ -30,8 +31,8 @@ describe("Report", () => {
             username,
             followers,
         });
-        jest.spyOn(console, "log");
+        const logSpy = vi.spyOn(console, "log");
         report.render();
-        expect(console.log).toHaveBeenCalledTimes(1);
+        expect(logSpy).toHaveBeenCalledTimes(1);
     });
 });

@@ -1,9 +1,12 @@
-const { followersFactory } = require("../../mocks/followers.mock");
-const { PlainSerializer } = require("./plain.serializer");
+import { describe, it, expect, beforeEach } from "vitest";
+
+import { followersFactory } from "../../mocks/followers.mock";
+import { PlainSerializer } from "./plain.serializer";
+import type { Follower } from "../types";
 
 describe("PlainSerializer", () => {
-    let followers;
-    let username;
+    let followers: Follower[];
+    let username: string;
 
     beforeEach(() => {
         followers = followersFactory();

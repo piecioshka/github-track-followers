@@ -11,8 +11,11 @@
     "scripts": {
         "clear": "rm -rf reports/ coverage/",
         "clear:all": "rm -rf node_modules/ && npm run clear",
-        "test": "jest --verbose",
-        "coverage": "jest --coverage"
+        "check-ts": "tsc --noEmit",
+        "prebuild": "rm -rf dist/ types/",
+        "build": "tsc",
+        "test": "vitest run",
+        "coverage": "vitest run --coverage"
     },
     "dependencies": {
         "colors": "^1.4.0",
@@ -21,8 +24,14 @@
         "superagent": "^10.1.1"
     },
     "devDependencies": {
-        "jest": "^29.7.0",
-        "nock": "^13.5.6"
+        "@types/debug": "^4.1.12",
+        "@types/minimist": "^1.2.5",
+        "@types/node": "^22.9.0",
+        "@types/superagent": "^8.1.9",
+        "@vitest/coverage-v8": "^2.1.5",
+        "nock": "^13.5.6",
+        "typescript": "^5.6.3",
+        "vitest": "^2.1.5"
     },
     "repository": {
         "type": "git",
@@ -31,13 +40,17 @@
     "engines": {
         "node": ">=16"
     },
+    "main": "index.js",
+    "types": "types/index.d.ts",
     "files": [
         "bin",
-        "src",
+        "dist",
+        "types",
+        "index.js",
         "package.json",
         "README.md",
-        "!**/*.spec.*",
-        "LICENSE"
+        "LICENSE",
+        "!**/*.spec.*"
     ],
     "keywords": [
         "cli",
