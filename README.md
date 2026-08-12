@@ -7,6 +7,7 @@
 [![size](https://packagephobia.com/badge?p=github-track-followers)](https://packagephobia.com/result?p=github-track-followers)
 [![license](https://img.shields.io/npm/l/github-track-followers.svg)](https://piecioshka.mit-license.org)
 [![github-ci](https://github.com/piecioshka/github-track-followers/actions/workflows/testing.yml/badge.svg)](https://github.com/piecioshka/github-track-followers/actions/workflows/testing.yml)
+![typescript](https://img.shields.io/badge/built%20with-TypeScript-3178c6.svg)
 
 🔨 CLI to display GitHub profile followers
 
